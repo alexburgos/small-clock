@@ -29,7 +29,7 @@ function setDate() {
   seconds = now.getSeconds();
   mins = now.getMinutes();
   hour = now.getHours() % 12 || 12;
-  meridiem = `${hour > 12 ? 'PM' : 'AM'}`;
+  meridiem = `${now.getHours() >= 12 ? 'PM' : 'AM'}`;
 
   //Add time to DOM elements
   secondsBlock.textContent = `${seconds < 10 ? `0${seconds}` : `${seconds}` }`;
