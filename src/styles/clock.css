@@ -50,6 +50,7 @@
   font-family: 'Source Code Pro';
   font-size: 2rem;
   margin-left: 15px;
+  outline: none;
   padding: 10px 15px;
   text-transform: uppercase;
   transition: transform 0.3s linear;
