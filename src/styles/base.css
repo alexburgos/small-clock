@@ -1,0 +1,19 @@
+html {
+  font-family:'Source Code Pro', monospace;
+  font-size: 10px;
+}
+
+body {
+  background: #ddd;
+  color: #333;
+  display:flex;
+  font-size: 2em;
+  align-items: center;
+  justify-content: center;
+  flex:1;
+  min-height: 100vh;
+}
+
+.night {
+  background: #333;
+}

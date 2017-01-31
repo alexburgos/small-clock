@@ -1,0 +1,97 @@
+.Clock {
+  border: 25px solid #9a7b55;
+  box-shadow: 15px 25px 15px 10px rgba(0,0,0,.2);
+  margin: 0 auto;
+  width: 600px;
+  height: 200px;
+  padding: 50px;
+}
+
+.Clock--night {
+  background: #fff;
+  color: #333;
+}
+
+.Clock--alarm-active {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  animation-iteration-count: 60;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.Clock__face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+}
+
+.Clock__hour,
+.Clock__mins,
+.Clock__seconds {
+  font-size: 6rem;
+  margin: 0 5px;
+}
+
+.Clock__meridiem {
+  font-size: 3rem;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.Clock__alarm {
+  text-align: center;
+}
+
+.Clock__button {
+  background: #FF4040;
+  border: none;
+  cursor: pointer;
+  font-family: 'Source Code Pro';
+  font-size: 2rem;
+  margin-left: 15px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  transition: transform 0.3s linear;
+  vertical-align: middle;
+}
+
+.Clock__button:hover {
+  transform: scale(1.25);
+}
+
+.Clock__fields {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.Clock__field {
+  font-size: 2rem;
+  margin: 0 10px;
+  width: 75px;
+  height: 50px;
+}
+
+/*Animations*/
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}

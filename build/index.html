@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+    <title>Clock</title>
+  </head>
+  <body>
+    <div class="Clock">
+      <div class="Clock__face">
+        <div class="Clock__hour"></div>
+        <div class="Clock__mins"></div>
+        <div class="Clock__seconds"></div>
+        <div class="Clock__meridiem"></div>
+      </div>
+
+      <div class="Clock__alarm">
+        <div class="Clock__fields">
+          <select class="Clock__field">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+          </select>
+          <select class="Clock__field">
+            <option>00</option>
+            <option>15</option>
+            <option>30</option>
+            <option>45</option>
+          </select>
+          <select class="Clock__field">
+            <option>AM</option>
+            <option>PM</option>
+          </select>
+          <button class="Clock__button">Set Alarm</button>
+        </div>
+      </div>
+    </div>
+
+    <audio id="alarm-sound" src="./assets/alarm.wav"></audio>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="bundle.js"></script>
+  </body>
+</html>
