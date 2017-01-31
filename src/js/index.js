@@ -11,37 +11,42 @@ const hourBlock = document.querySelector('.Clock__hour');
 const meridiemBlock = document.querySelector('.Clock__meridiem');
 const alarmSound = document.querySelector('#alarm-sound');
 const alarmBtn = document.querySelector('.Clock__button');
-let now, seconds, mins, hour;
+let now, seconds, mins, hour, meridiem;
 
-/*
-
+/**
+  * @desc Populates a Clock element with the current time
+  * @return
 */
 
 function setDate() {
   //Use local storage to get alarm time in case the user leaves the site
   let alarmTime = JSON.parse(localStorage.getItem('alarmTime'));
+  let hourText;
+
+  //Get time
   now = new Date();
   seconds = now.getSeconds();
   mins = now.getMinutes();
-  hour = now.getHours();
+  hour = now.getHours() % 12 || 12;
+  meridiem = `${hour > 12 ? 'PM' : 'AM'}`;
 
-
+  //Add time to DOM elements
   secondsBlock.textContent = `${seconds < 10 ? `0${seconds}` : `${seconds}` }`;
   minsBlock.textContent = `${mins < 10 ? `0${mins}` : `${mins}`}:`;
-  hourBlock.textContent = `${hour > 12 ? hour - 12 : hour}:`;
-  meridiemBlock.textContent = `${hour > 12 ? 'PM' : 'AM'}`;
+  hourBlock.textContent = `${hour}:`;
+  meridiemBlock.textContent = meridiem;
 
+  //Compare alarm time to the current time
   if (alarmTime !== null) {
-    if ( (hour - 12 ) === parseInt(alarmTime[0]) && mins === parseInt(alarmTime[1]) ) {
+    console.log(hour, parseInt(alarmTime[0]), mins, parseInt(alarmTime[1]), meridiem, alarmTime[2])
+    //if the current time and the alarm time are a match, play alarm sound
+    if (  hour === parseInt(alarmTime[0])
+          && mins === parseInt(alarmTime[1])
+          && meridiem === alarmTime[2] ) {
       clock.classList.add('Clock--alarm-active');
       alarmSound.play();
     }
   }
-}
-
-function enableNightShift() {
-  document.body.classList.add('night');
-  clock.classList.add('Clock--night');
 }
 
 function setAlarm() {
@@ -49,9 +54,16 @@ function setAlarm() {
   localStorage.setItem('alarmTime', JSON.stringify(time));
 }
 
+function enableNightShift() {
+  document.body.classList.add('night');
+  clock.classList.add('Clock--night');
+}
+
+//Main 
+
 setInterval( setDate , 1000);
 setDate();
 
 //Add event listeners and enable night shift
 alarmBtn.addEventListener('click', setAlarm);
-if (hour >= 18) enableNightShift();
+if (hour >= 18 || hour <= 6) enableNightShift();

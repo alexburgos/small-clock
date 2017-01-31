@@ -58,8 +58,8 @@
   vertical-align: middle;
 }
 
-.Clock__button:hover {
-  transform: scale(1.25);
+.Clock__button:active {
+  transform: scale(0.9);
 }
 
 .Clock__fields {
@@ -76,7 +76,7 @@
   height: 50px;
 }
 
-/*Animations*/
+/*Animations (if supported by browser)*/
 
 @keyframes shake {
   10%, 90% {
