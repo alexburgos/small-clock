@@ -22,7 +22,6 @@ let now, seconds, mins, hour, meridiem;
 function setDate() {
   //Use local storage to get alarm time in case the user leaves the site
   let alarmTime = JSON.parse(localStorage.getItem('alarmTime'));
-  let hourText;
 
   //Get time
   now = new Date();
@@ -50,6 +49,7 @@ function setDate() {
 }
 
 function setAlarm() {
+  //spread the select option nodes into an array of time inputs we can store in browser
   let time = [...document.querySelectorAll('.Clock__field')].map( input => input.value );
   localStorage.setItem('alarmTime', JSON.stringify(time));
 }
