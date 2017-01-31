@@ -2,9 +2,9 @@
   border: 25px solid #9a7b55;
   box-shadow: 15px 25px 15px 10px rgba(0,0,0,.2);
   margin: 0 auto;
-  width: 600px;
+  width: 500px;
   height: 200px;
-  padding: 50px;
+  padding: 35px;
 }
 
 .Clock--night {
