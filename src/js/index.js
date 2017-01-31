@@ -15,7 +15,8 @@ let now, seconds, mins, hour, meridiem;
 
 /**
   * @desc Populates a Clock element with the current time
-  * @return
+  * current time is calculated and formatted based on a 12 hour clock (AM/PM)
+  * @return null
 */
 
 function setDate() {
@@ -38,7 +39,6 @@ function setDate() {
 
   //Compare alarm time to the current time
   if (alarmTime !== null) {
-    console.log(hour, parseInt(alarmTime[0]), mins, parseInt(alarmTime[1]), meridiem, alarmTime[2])
     //if the current time and the alarm time are a match, play alarm sound
     if (  hour === parseInt(alarmTime[0])
           && mins === parseInt(alarmTime[1])
@@ -54,16 +54,10 @@ function setAlarm() {
   localStorage.setItem('alarmTime', JSON.stringify(time));
 }
 
-function enableNightShift() {
-  document.body.classList.add('night');
-  clock.classList.add('Clock--night');
-}
-
-//Main 
-
+//Main
 setInterval( setDate , 1000);
 setDate();
 
 //Add event listeners and enable night shift
 alarmBtn.addEventListener('click', setAlarm);
-if (hour >= 18 || hour <= 6) enableNightShift();
+if (hour >= 18 || hour <= 6) document.body.classList.add('night');

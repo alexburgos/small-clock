@@ -1,15 +1,12 @@
 .Clock {
+  background: #fff;
+  color: #333;
   border: 25px solid #9a7b55;
   box-shadow: 15px 25px 15px 10px rgba(0,0,0,.2);
   margin: 0 auto;
   width: 500px;
   height: 200px;
   padding: 35px;
-}
-
-.Clock--night {
-  background: #fff;
-  color: #333;
 }
 
 .Clock--alarm-active {
@@ -48,6 +45,7 @@
 .Clock__button {
   background: #FF4040;
   border: none;
+  box-shadow: 5px 5px 15px 0px #333;
   cursor: pointer;
   font-family: 'Source Code Pro';
   font-size: 2rem;
