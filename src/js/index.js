@@ -55,9 +55,12 @@ function setAlarm() {
 }
 
 //Main
-setInterval( setDate , 1000);
-setDate();
 
-//Add event listeners and enable night shift
-alarmBtn.addEventListener('click', setAlarm);
-if (hour >= 18 || hour <= 6) document.body.classList.add('night');
+document.addEventListener('DOMContentLoaded', () => {
+  setInterval( setDate , 1000);
+  setDate();
+
+  //Add event listeners and enable night shift
+  alarmBtn.addEventListener('click', setAlarm);
+  if (hour >= 18 || hour <= 6) document.body.classList.add('night');
+});
